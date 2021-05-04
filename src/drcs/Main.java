@@ -9,10 +9,14 @@ public class Main {
 	
 	public static void main(String[] args) {
 		if (args.length == 0) {
-			err("ERROR: input file not specified!");
+			StringBuilder builder = new StringBuilder();
+			builder.append("ERROR: input file not specified!\n");
+			builder.append("PARAMETERS: input [params...]\n");
+			builder.append("EXAMPLE: code.droc1 45 98\n");
+			err(builder.toString());
 		}
 		try {
-			String[] input = readFile(args[0]).split("\\s+");
+			String[] input = readFile(args[0]).trim().split("\\s+");
 			new Computer(input, Arrays.copyOfRange(args, 1, args.length)).run();
 		}
 		catch (Exception e) {

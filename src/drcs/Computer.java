@@ -19,7 +19,7 @@ public class Computer {
 				memory.put(i, (short) Integer.parseInt(code[i]));
 			}
 			else if (i >= MEMORY_SIZE - args.length) {
-				memory.put(i, (short) Integer.parseInt(args[MEMORY_SIZE - i]));
+				memory.put(i, (short) Integer.parseInt(args[MEMORY_SIZE - i - 1]));
 			}
 			else {
 				memory.put(i, (short) 0);
@@ -66,6 +66,7 @@ public class Computer {
 			
 			switch (instruction) {
 				case HLT:
+					System.out.println("HALT");
 					return;
 				
 				case NOP:
