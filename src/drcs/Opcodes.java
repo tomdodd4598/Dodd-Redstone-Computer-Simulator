@@ -117,9 +117,9 @@ public class Opcodes {
 	public static final short DIVPB = 0xD3;
 	public static final short DIVNB = 0xD4;
 	
-	public static final short MODI = 0xE0;
-	public static final short MODLI = 0xE1;
-	public static final short MOD = 0xE2;
-	public static final short MODPB = 0xE3;
-	public static final short MODNB = 0xE4;
+	public static final short REMI = 0xE0;
+	public static final short REMLI = 0xE1;
+	public static final short REM = 0xE2;
+	public static final short REMPB = 0xE3;
+	public static final short REMNB = 0xE4;
 }

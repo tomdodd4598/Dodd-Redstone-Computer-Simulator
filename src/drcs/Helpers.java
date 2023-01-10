@@ -1,6 +1,12 @@
 package drcs;
 
-public class Helper {
+import java.util.Locale;
+
+public class Helpers {
+	
+	public static String lowerCase(String s) {
+		return s.toLowerCase(Locale.ROOT);
+	}
 	
 	public static short low(short value) {
 		return (short) (value & 0xFF);
@@ -24,5 +30,14 @@ public class Helper {
 	
 	public static short bool(boolean bool) {
 		return (short) (bool ? 1 : 0);
+	}
+	
+	public static String hex(short value, short length) {
+		if (value < 0) {
+			return "-0x".concat(String.format("%" + length + "s", Integer.toHexString(-value)).replace(' ', '0').toUpperCase(Locale.ROOT));
+		}
+		else {
+			return "0x".concat(String.format("%" + length + "s", Integer.toHexString(value)).replace(' ', '0').toUpperCase(Locale.ROOT));
+		}
 	}
 }

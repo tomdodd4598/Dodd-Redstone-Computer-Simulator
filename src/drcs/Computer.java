@@ -1,19 +1,25 @@
 package drcs;
 
-import static drcs.Helper.*;
+import static drcs.Helpers.*;
+import static drcs.Main.READER;
+import static drcs.Mnemonics.get;
 import static drcs.Opcodes.*;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Computer {
 	
 	private static final short MEMORY_SIZE = 256;
+	private static final short HEX_LENGTH = 2;
 	
 	private final Map<Short, Short> memory = new HashMap<>();
 	
+	private final boolean debug;
+	
 	private short a = 0, b = 0, bp = 0, sp = 0, pc = 0;
 	
-	public Computer(String[] code, String[] args) {
+	public Computer(String[] code, String[] args, boolean debug) {
 		for (short i = 0; i < MEMORY_SIZE; ++i) {
 			if (i < code.length) {
 				memory.put(i, (short) Integer.parseInt(code[i]));
@@ -25,6 +31,7 @@ public class Computer {
 				memory.put(i, (short) 0);
 			}
 		}
+		this.debug = debug;
 	}
 	
 	private short read(int address) {
@@ -58,15 +65,16 @@ public class Computer {
 	}
 	
 	public void run() {
-		short data, instruction, argument;
+		short prevpc, data, instruction, argument;
 		while (true) {
+			prevpc = pc;
 			data = next();
 			instruction = high(data);
 			argument = low(data);
 			
 			switch (instruction) {
 				case HLT:
-					System.out.println("HALT");
+					System.out.println("HALT " + a);
 					return;
 				
 				case NOP:
@@ -161,7 +169,7 @@ public class Computer {
 				
 				case CALL:
 					push(argument);
-					jump(next(), true);
+					jump(a, true);
 					break;
 				case RET:
 					jump(pop(), true);
@@ -374,25 +382,38 @@ public class Computer {
 					a /= read(bp - argument);
 					break;
 				
-				case MODI:
+				case REMI:
 					a %= argument;
 					break;
-				case MODLI:
+				case REMLI:
 					a %= next();
 					break;
-				case MOD:
+				case REM:
 					a %= read(argument);
 					break;
-				case MODPB:
+				case REMPB:
 					a %= read(bp + argument);
 					break;
-				case MODNB:
+				case REMNB:
 					a %= read(bp - argument);
 					break;
 				
 				default:
 					break;
 			}
+			
+			if (debug) {
+				try {
+					if (READER.readLine() != null) {
+						System.out.println(hex(prevpc) + "\t" + get(instruction) + "\t" + hex(argument) + "\nA:\tB:\tBP:\tSP:\tPC:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
+					}
+				}
+				catch (IOException e) {}
+			}
 		}
+	}
+	
+	private static String hex(short value) {
+		return Helpers.hex(value, HEX_LENGTH);
 	}
 }
