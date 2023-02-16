@@ -5,7 +5,7 @@ Dodd Redstone Computer Simulator
 Summary
 -------
 
-The Dodd Redstone Computer Simulator is a simulator for a custom redstone computer, built as a simple target for the [Dodd Redstone Language Compiler](https://github.com/turbodiesel4598/Dodd-Redstone-Language-Compiler).
+The Dodd Redstone Computer Simulator is a simulator for a [custom redstone computer](https://www.curseforge.com/minecraft/modpacks/drc-redstone-computing-pack), built as a simple target for the [Dodd Redstone Language Compiler](https://github.com/turbodiesel4598/Dodd-Redstone-Language-Compiler).
 
 
 Permissions
