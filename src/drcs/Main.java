@@ -11,13 +11,13 @@ public class Main {
 	
 	public static void main(String[] args) {
 		if (args.length == 0) {
-			StringBuilder builder = new StringBuilder();
-			builder.append("ERROR: input file not specified!\n");
-			builder.append("PARAMETERS: [\"-s\"] input [params...]\n");
-			builder.append("INFO: optionally run in single-step debug mode with \"-s\"\n");
-			builder.append("INFO: optionally specify parameters after the input file name\n");
-			builder.append("EXAMPLE: program.droc1 45 98\n");
-			err(builder.toString());
+			StringBuilder sb = new StringBuilder();
+			sb.append("ERROR: input file not specified!\n");
+			sb.append("PARAMETERS: [\"-s\"] input [params...]\n");
+			sb.append("INFO: optionally run in single-step debug mode with \"-s\"\n");
+			sb.append("INFO: optionally specify parameters after the input file name\n");
+			sb.append("EXAMPLE: program.droc1 45 98\n");
+			err(sb.toString());
 		}
 		try {
 			boolean debug = trim(args[0]).equals("s");

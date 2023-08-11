@@ -33,11 +33,6 @@ public class Helpers {
 	}
 	
 	public static String hex(short value, short length) {
-		if (value < 0) {
-			return "-0x".concat(String.format("%" + length + "s", Integer.toHexString(-value)).replace(' ', '0').toUpperCase(Locale.ROOT));
-		}
-		else {
-			return "0x".concat(String.format("%" + length + "s", Integer.toHexString(value)).replace(' ', '0').toUpperCase(Locale.ROOT));
-		}
+		return (value < 0 ? "-0x" : "0x") + String.format("%" + length + "s", Integer.toHexString(Math.abs(value))).replace(' ', '0').toUpperCase(Locale.ROOT);
 	}
 }
