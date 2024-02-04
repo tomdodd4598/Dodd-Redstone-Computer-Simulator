@@ -107,6 +107,13 @@ public class Computer {
 					a >>= nybble(argument);
 					break;
 				
+				case ADDBI:
+					b += argument;
+					break;
+				case SUBBI:
+					b -= argument;
+					break;
+				
 				case OUT:
 					out();
 					break;
@@ -161,10 +168,10 @@ public class Computer {
 					b = read(b);
 					break;
 				case STATB:
-					write(b + argument, a);
+					write(b, a);
 					break;
 				case STBTA:
-					write(a + argument, b);
+					write(a, b);
 					break;
 				
 				case CALL:

@@ -15,6 +15,9 @@ public class Opcodes {
 	public static final short LSHI = 0x08;
 	public static final short RSHI = 0x09;
 	
+	public static final short ADDBI = 0x0A;
+	public static final short SUBBI = 0x0B;
+	
 	public static final short OUT = 0x10;
 	public static final short LDALI = 0x11;
 	public static final short NOTLI = 0x12;

@@ -22,6 +22,9 @@ public class Mnemonics {
 		put(LSHI, "LSHI");
 		put(RSHI, "RSHI");
 		
+		put(ADDBI, "ADDBI");
+		put(SUBBI, "SUBBI");
+		
 		put(OUT, "OUT");
 		put(LDALI, "LDALI");
 		put(NOTLI, "NOTLI");
