@@ -161,10 +161,10 @@ public class Computer {
 					b = read(b);
 					break;
 				case STATB:
-					write(b, a);
+					write(b + argument, a);
 					break;
 				case STBTA:
-					write(a, b);
+					write(a + argument, b);
 					break;
 				
 				case CALL:
