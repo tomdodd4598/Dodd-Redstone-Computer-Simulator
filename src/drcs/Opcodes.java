@@ -92,6 +92,8 @@ public class Opcodes {
 	public static final short STBPB = 0x8A;
 	public static final short LDBPB = 0x8B;
 	public static final short LDIPB = 0x8C;
+	public static final short ADDIPB = 0x8D;
+	public static final short SUBIPB = 0x8E;
 	
 	public static final short STANB = 0xA0;
 	public static final short LDANB = 0xA1;
@@ -107,6 +109,8 @@ public class Opcodes {
 	public static final short STBNB = 0xAA;
 	public static final short LDBNB = 0xAB;
 	public static final short LDINB = 0xAC;
+	public static final short ADDINB = 0xAD;
+	public static final short SUBINB = 0xAE;
 	
 	public static final short MULI = 0xC0;
 	public static final short MULLI = 0xC1;

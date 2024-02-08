@@ -61,7 +61,7 @@ public class Computer {
 	}
 	
 	private void out() {
-		System.out.println(a);
+		System.out.print((char) a);
 	}
 	
 	public void run() {
@@ -315,6 +315,12 @@ public class Computer {
 				case LDIPB:
 					a = (short) (bp + argument);
 					break;
+				case ADDIPB:
+					a += (short) (bp + argument);
+					break;
+				case SUBIPB:
+					a -= (short) (bp + argument);
+					break;
 				
 				case STANB:
 					write(bp - argument, a);
@@ -355,6 +361,12 @@ public class Computer {
 					break;
 				case LDINB:
 					a = (short) (bp - argument);
+					break;
+				case ADDINB:
+					a += (short) (bp - argument);
+					break;
+				case SUBINB:
+					a -= (short) (bp - argument);
 					break;
 				
 				case MULI:
@@ -412,7 +424,7 @@ public class Computer {
 			if (debug) {
 				try {
 					if (READER.readLine() != null) {
-						System.out.println(hex(prevpc) + "\t" + get(instruction) + "\t" + hex(argument) + "\nA:\tB:\tBP:\tSP:\tPC:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
+						System.out.println(hex(prevpc) + "\t" + get(instruction) + "\t" + hex(argument) + "\na:\tb:\tbp:\tsp:\tpc:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
 					}
 				}
 				catch (IOException e) {}

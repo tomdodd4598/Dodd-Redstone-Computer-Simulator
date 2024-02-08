@@ -99,6 +99,8 @@ public class Mnemonics {
 		put(STBPB, "STBPB");
 		put(LDBPB, "LDBPB");
 		put(LDIPB, "LDIPB");
+		put(ADDIPB, "ADDIPB");
+		put(SUBIPB, "SUBIPB");
 		
 		put(STANB, "STANB");
 		put(LDANB, "LDANB");
@@ -114,6 +116,8 @@ public class Mnemonics {
 		put(STBNB, "STBNB");
 		put(LDBNB, "LDBNB");
 		put(LDINB, "LDINB");
+		put(ADDINB, "ADDINB");
+		put(SUBINB, "SUBINB");
 		
 		put(MULI, "MULI");
 		put(MULLI, "MULLI");
