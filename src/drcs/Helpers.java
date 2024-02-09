@@ -8,6 +8,10 @@ public class Helpers {
 		return s.toLowerCase(Locale.ROOT);
 	}
 	
+	public static String upperCase(String s) {
+		return s.toUpperCase(Locale.ROOT);
+	}
+	
 	public static short low(short value) {
 		return (short) (value & 0xFF);
 	}
@@ -33,6 +37,6 @@ public class Helpers {
 	}
 	
 	public static String hex(short value, short length) {
-		return (value < 0 ? "-0x" : "0x") + String.format("%" + length + "s", Integer.toHexString(Math.abs(value))).replace(' ', '0').toUpperCase(Locale.ROOT);
+		return (value < 0 ? "-0x" : "0x") + upperCase(String.format("%" + length + "s", Integer.toHexString(Math.abs(value))).replace(' ', '0'));
 	}
 }
