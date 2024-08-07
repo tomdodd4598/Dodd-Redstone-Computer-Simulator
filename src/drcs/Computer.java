@@ -174,6 +174,10 @@ public class Computer {
 					push(argument);
 					jump(a, true);
 					break;
+				case CALLF:
+					push(next());
+					jump(a, true);
+					break;
 				case RET:
 					jump(pop(), true);
 					break;
@@ -271,6 +275,28 @@ public class Computer {
 					jump(argument, a >= 0);
 					break;
 				
+				case JMPF:
+					jump(next(), true);
+					break;
+				case JEZF:
+					jump(next(), a == 0);
+					break;
+				case JNEZF:
+					jump(next(), a != 0);
+					break;
+				case JLZF:
+					jump(next(), a < 0);
+					break;
+				case JLEZF:
+					jump(next(), a <= 0);
+					break;
+				case JMZF:
+					jump(next(), a > 0);
+					break;
+				case JMEZF:
+					jump(next(), a >= 0);
+					break;
+				
 				case STAPB:
 					write(bp + argument, a);
 					break;
@@ -365,6 +391,44 @@ public class Computer {
 					a -= (short) (bp - argument);
 					break;
 				
+				case STAL:
+					write(next(), a);
+					break;
+				case LDAL:
+					a = read(next());
+					break;
+				case NOTL:
+					a = inv(read(next()));
+					break;
+				case ANDL:
+					a &= read(next());
+					break;
+				case ORL:
+					a |= read(next());
+					break;
+				case XORL:
+					a ^= read(next());
+					break;
+				case ADDL:
+					a += read(next());
+					break;
+				case SUBL:
+					a -= read(next());
+					break;
+				case LSHL:
+					a <<= nybble(read(next()));
+					break;
+				case RSHL:
+					a >>= nybble(read(next()));
+					break;
+				
+				case STBL:
+					write(next(), b);
+					break;
+				case LDBL:
+					b = read(next());
+					break;
+				
 				case MULI:
 					a *= argument;
 					break;
@@ -379,6 +443,9 @@ public class Computer {
 					break;
 				case MULNB:
 					a *= read(bp - argument);
+					break;
+				case MULL:
+					a *= read(next());
 					break;
 				
 				case DIVI:
@@ -396,6 +463,9 @@ public class Computer {
 				case DIVNB:
 					a /= read(bp - argument);
 					break;
+				case DIVL:
+					a /= read(next());
+					break;
 				
 				case REMI:
 					a %= argument;
@@ -411,6 +481,9 @@ public class Computer {
 					break;
 				case REMNB:
 					a %= read(bp - argument);
+					break;
+				case REML:
+					a %= read(next());
 					break;
 				
 				default:

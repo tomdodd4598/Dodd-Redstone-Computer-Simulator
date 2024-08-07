@@ -41,7 +41,8 @@ public class Opcodes {
 	public static final short STBTA = 0x2D;
 	
 	public static final short CALL = 0x30;
-	public static final short RET = 0x31;
+	public static final short CALLF = 0x31;
+	public static final short RET = 0x32;
 	
 	public static final short PSHA = 0x3A;
 	public static final short POPA = 0x3B;
@@ -78,6 +79,14 @@ public class Opcodes {
 	public static final short JMZ = 0x75;
 	public static final short JMEZ = 0x76;
 	
+	public static final short JMPF = 0x77;
+	public static final short JEZF = 0x78;
+	public static final short JNEZF = 0x79;
+	public static final short JLZF = 0x7A;
+	public static final short JLEZF = 0x7B;
+	public static final short JMZF = 0x7C;
+	public static final short JMEZF = 0x7D;
+	
 	public static final short STAPB = 0x80;
 	public static final short LDAPB = 0x81;
 	public static final short NOTPB = 0x82;
@@ -112,21 +121,38 @@ public class Opcodes {
 	public static final short ADDINB = 0xAD;
 	public static final short SUBINB = 0xAE;
 	
+	public static final short STAL = 0xB0;
+	public static final short LDAL = 0xB1;
+	public static final short NOTL = 0xB2;
+	public static final short ANDL = 0xB3;
+	public static final short ORL = 0xB4;
+	public static final short XORL = 0xB5;
+	public static final short ADDL = 0xB6;
+	public static final short SUBL = 0xB7;
+	public static final short LSHL = 0xB8;
+	public static final short RSHL = 0xB9;
+	
+	public static final short STBL = 0xBA;
+	public static final short LDBL = 0xBB;
+	
 	public static final short MULI = 0xC0;
 	public static final short MULLI = 0xC1;
 	public static final short MUL = 0xC2;
 	public static final short MULPB = 0xC3;
 	public static final short MULNB = 0xC4;
+	public static final short MULL = 0xC5;
 	
 	public static final short DIVI = 0xD0;
 	public static final short DIVLI = 0xD1;
 	public static final short DIV = 0xD2;
 	public static final short DIVPB = 0xD3;
 	public static final short DIVNB = 0xD4;
+	public static final short DIVL = 0xD5;
 	
 	public static final short REMI = 0xE0;
 	public static final short REMLI = 0xE1;
 	public static final short REM = 0xE2;
 	public static final short REMPB = 0xE3;
 	public static final short REMNB = 0xE4;
+	public static final short REML = 0xE5;
 }

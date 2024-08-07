@@ -48,6 +48,7 @@ public class Mnemonics {
 		put(STBTA, "STBTA");
 		
 		put(CALL, "CALL");
+		put(CALLF, "CALLF");
 		put(RET, "RET");
 		
 		put(PSHA, "PSHA");
@@ -85,6 +86,14 @@ public class Mnemonics {
 		put(JMZ, "JMZ");
 		put(JMEZ, "JMEZ");
 		
+		put(JMPF, "JMPF");
+		put(JEZF, "JEZF");
+		put(JNEZF, "JNEZF");
+		put(JLZF, "JLZF");
+		put(JLEZF, "JLEZF");
+		put(JMZF, "JMZF");
+		put(JMEZF, "JMEZF");
+		
 		put(STAPB, "STAPB");
 		put(LDAPB, "LDAPB");
 		put(NOTPB, "NOTPB");
@@ -119,23 +128,40 @@ public class Mnemonics {
 		put(ADDINB, "ADDINB");
 		put(SUBINB, "SUBINB");
 		
+		put(STAL, "STAL");
+		put(LDAL, "LDAL");
+		put(NOTL, "NOTL");
+		put(ANDL, "ANDL");
+		put(ORL, "ORL");
+		put(XORL, "XORL");
+		put(ADDL, "ADDL");
+		put(SUBL, "SUBL");
+		put(LSHL, "LSHL");
+		put(RSHL, "RSHL");
+		
+		put(STBL, "STBL");
+		put(LDBL, "LDBL");
+		
 		put(MULI, "MULI");
 		put(MULLI, "MULLI");
 		put(MUL, "MUL");
 		put(MULPB, "MULPB");
 		put(MULNB, "MULNB");
+		put(MULL, "MULL");
 		
 		put(DIVI, "DIVI");
 		put(DIVLI, "DIVLI");
 		put(DIV, "DIV");
 		put(DIVPB, "DIVPB");
 		put(DIVNB, "DIVNB");
+		put(DIVL, "DIVL");
 		
 		put(REMI, "REMI");
 		put(REMLI, "REMLI");
 		put(REM, "REM");
 		put(REMPB, "REMPB");
 		put(REMNB, "REMNB");
+		put(REML, "REML");
 	}
 	
 	private static void put(short opcode, String mnemonic) {
