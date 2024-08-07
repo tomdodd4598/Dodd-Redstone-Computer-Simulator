@@ -28,15 +28,15 @@ public class Helpers {
 		return (short) ~value;
 	}
 	
-	public static short mod(short a, short b) {
-		return (short) ((a % b + b) % b);
-	}
-	
 	public static short bool(boolean bool) {
 		return (short) (bool ? 1 : 0);
 	}
 	
-	public static String hex(short value, short length) {
+	public static int mod(int a, int b) {
+		return (a % b + b) % b;
+	}
+	
+	public static String hex(short value, int length) {
 		return (value < 0 ? "-0x" : "0x") + upperCase(String.format("%" + length + "s", Integer.toHexString(Math.abs(value))).replace(' ', '0'));
 	}
 }

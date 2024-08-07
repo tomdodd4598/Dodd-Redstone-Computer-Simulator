@@ -6,40 +6,36 @@ import static drcs.Mnemonics.get;
 import static drcs.Opcodes.*;
 
 import java.io.IOException;
-import java.util.*;
 
 public class Computer {
 	
-	private static final short MEMORY_SIZE = 256;
-	private static final short HEX_LENGTH = 2;
+	private static final int MEMORY_SIZE = 65536;
+	private static final int HEX_LENGTH = 4;
 	
-	private final Map<Short, Short> memory = new HashMap<>();
+	private final short[] memory = new short[MEMORY_SIZE];
 	
 	private final boolean debug;
 	
 	private short a = 0, b = 0, bp = 0, sp = 0, pc = 0;
 	
 	public Computer(String[] code, String[] args, boolean debug) {
-		for (short i = 0; i < MEMORY_SIZE; ++i) {
-			if (i < code.length) {
-				memory.put(i, (short) Integer.parseInt(code[i]));
-			}
-			else if (i >= MEMORY_SIZE - args.length) {
-				memory.put(i, (short) Integer.parseInt(args[MEMORY_SIZE - i - 1]));
-			}
-			else {
-				memory.put(i, (short) 0);
-			}
+		for (int i = 0; i < code.length; ++i) {
+			memory[i] = (short) Integer.parseInt(code[i]);
 		}
+		
+		for (int i = 0; i < args.length; ++i) {
+			memory[MEMORY_SIZE - i - 1] = (short) Integer.parseInt(args[i]);
+		}
+		
 		this.debug = debug;
 	}
 	
 	private short read(int address) {
-		return memory.get(mod((short) address, MEMORY_SIZE));
+		return memory[mod((short) address, MEMORY_SIZE)];
 	}
 	
 	private void write(int address, short data) {
-		memory.put(mod((short) address, MEMORY_SIZE), data);
+		memory[mod((short) address, MEMORY_SIZE)] = data;
 	}
 	
 	private short next() {
@@ -65,14 +61,14 @@ public class Computer {
 	}
 	
 	public void run() {
-		short prevpc, data, instruction, argument;
+		short prevpc, data, opcode, argument;
 		while (true) {
 			prevpc = pc;
 			data = next();
-			instruction = high(data);
+			opcode = high(data);
 			argument = low(data);
 			
-			switch (instruction) {
+			switch (opcode) {
 				case HLT:
 					System.out.println("HALT " + a);
 					return;
@@ -424,15 +420,11 @@ public class Computer {
 			if (debug) {
 				try {
 					if (READER.readLine() != null) {
-						System.out.println(hex(prevpc) + "\t" + get(instruction) + "\t" + hex(argument) + "\na:\tb:\tbp:\tsp:\tpc:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
+						System.out.println(hex(prevpc, HEX_LENGTH) + "\t" + get(opcode) + "\t" + hex(argument, HEX_LENGTH) + "\na:\tb:\tbp:\tsp:\tpc:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
 					}
 				}
 				catch (IOException e) {}
 			}
 		}
-	}
-	
-	private static String hex(short value) {
-		return Helpers.hex(value, HEX_LENGTH);
 	}
 }
