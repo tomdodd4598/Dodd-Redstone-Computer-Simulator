@@ -18,6 +18,8 @@ public class Computer {
 	
 	private short a = 0, b = 0, bp = 0, sp = 0, pc = 0;
 	
+	private boolean longInstruction = false;
+	
 	public Computer(String[] code, String[] args, boolean debug) {
 		for (int i = 0; i < code.length; ++i) {
 			memory[i] = (short) Integer.parseInt(code[i]);
@@ -39,6 +41,7 @@ public class Computer {
 	}
 	
 	private short next() {
+		longInstruction = true;
 		return read(pc++);
 	}
 	
@@ -67,6 +70,8 @@ public class Computer {
 			data = next();
 			opcode = high(data);
 			argument = low(data);
+			
+			longInstruction = false;
 			
 			switch (opcode) {
 				case HLT:
@@ -493,7 +498,7 @@ public class Computer {
 			if (debug) {
 				try {
 					if (READER.readLine() != null) {
-						System.out.println(hex(prevpc, HEX_LENGTH) + "\t" + get(opcode) + "\t" + hex(argument, HEX_LENGTH) + "\na:\tb:\tbp:\tsp:\tpc:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
+						System.out.println(hex(prevpc, HEX_LENGTH) + "\t" + get(opcode) + "\t" + hex(longInstruction ? read(prevpc + 1) : argument, HEX_LENGTH) + "\na:\tb:\tbp:\tsp:\tpc:\n" + a + "\t" + b + "\t" + bp + "\t" + sp + "\t" + pc);
 					}
 				}
 				catch (IOException e) {}
