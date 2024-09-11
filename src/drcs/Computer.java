@@ -280,25 +280,25 @@ public class Computer {
 					jump(argument, a >= 0);
 					break;
 				
-				case JMPF:
+				case JMPL:
 					jump(next(), true);
 					break;
-				case JEZF:
+				case JEZL:
 					jump(next(), a == 0);
 					break;
-				case JNEZF:
+				case JNEZL:
 					jump(next(), a != 0);
 					break;
-				case JLZF:
+				case JLZL:
 					jump(next(), a < 0);
 					break;
-				case JLEZF:
+				case JLEZL:
 					jump(next(), a <= 0);
 					break;
-				case JMZF:
+				case JMZL:
 					jump(next(), a > 0);
 					break;
-				case JMEZF:
+				case JMEZL:
 					jump(next(), a >= 0);
 					break;
 				

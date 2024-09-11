@@ -86,13 +86,13 @@ public class Mnemonics {
 		put(JMZ, "JMZ");
 		put(JMEZ, "JMEZ");
 		
-		put(JMPF, "JMPF");
-		put(JEZF, "JEZF");
-		put(JNEZF, "JNEZF");
-		put(JLZF, "JLZF");
-		put(JLEZF, "JLEZF");
-		put(JMZF, "JMZF");
-		put(JMEZF, "JMEZF");
+		put(JMPL, "JMPL");
+		put(JEZL, "JEZL");
+		put(JNEZL, "JNEZL");
+		put(JLZL, "JLZL");
+		put(JLEZL, "JLEZL");
+		put(JMZL, "JMZL");
+		put(JMEZL, "JMEZL");
 		
 		put(STAPB, "STAPB");
 		put(LDAPB, "LDAPB");

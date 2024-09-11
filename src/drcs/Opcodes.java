@@ -79,13 +79,13 @@ public class Opcodes {
 	public static final short JMZ = 0x75;
 	public static final short JMEZ = 0x76;
 	
-	public static final short JMPF = 0x77;
-	public static final short JEZF = 0x78;
-	public static final short JNEZF = 0x79;
-	public static final short JLZF = 0x7A;
-	public static final short JLEZF = 0x7B;
-	public static final short JMZF = 0x7C;
-	public static final short JMEZF = 0x7D;
+	public static final short JMPL = 0x77;
+	public static final short JEZL = 0x78;
+	public static final short JNEZL = 0x79;
+	public static final short JLZL = 0x7A;
+	public static final short JLEZL = 0x7B;
+	public static final short JMZL = 0x7C;
+	public static final short JMEZL = 0x7D;
 	
 	public static final short STAPB = 0x80;
 	public static final short LDAPB = 0x81;
